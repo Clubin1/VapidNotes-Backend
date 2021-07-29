@@ -104,6 +104,7 @@ router.post("/login", (req, res) => { // Form validation
                 const payload = {
                     id: user.id,
                     name: user.name,
+                    email:user.email,
                     creditScore: user.creditScore,
                     studentAcc: user.studentAcc,
                     personalAcc: user.personalAcc,
