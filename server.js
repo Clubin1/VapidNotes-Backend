@@ -31,7 +31,7 @@ require('./config/passport')(passport)
 
 // Routes
 app.use('/api/users', users)
-app.post("/settings/upload", (req,res) => {
+app.post("/settings/upload/image", (req,res) => {
     try {
         const fileStr = req.body.data
         console.log(fileStr)
