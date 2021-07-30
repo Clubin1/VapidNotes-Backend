@@ -89,6 +89,7 @@ router.post("/tasks/:id", (req,res) => {
       if (!user) {
         res.status(404).send("user not found");
       } else {
+        console.log(req.body.levelExp)
         user.levelExp = req.body.levelExp
         user
           .save()
