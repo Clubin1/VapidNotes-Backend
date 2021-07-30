@@ -75,6 +75,15 @@ router.post("/settings/:id", (req,res) => {
     });
 })
 
+router.post("/settings/upload", (req,res) => {
+    try {
+        const fileStr = req.body.data
+        console.log(fileStr)
+    } catch (error) {
+        console.error(error)
+    }
+})
+
 router.get("/tasks/:id", (req, res) => {
     const id = req.params.id;
     User.findById(id, (err, user) => {
