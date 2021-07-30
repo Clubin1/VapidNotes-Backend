@@ -154,7 +154,8 @@ router.post("/login", (req, res) => { // Form validation
                     bankAccount: user.bankAccount,
                     bankSum: user.bankSum,
                     reasonVisit: user.reasonVisit,
-                    levelExp: user.levelExp
+                    levelExp: user.levelExp,
+                    imageURL: user.imageURL
                 }
                 // Sign token
                 jwt.sign(payload, keys.secretOrKey, {
