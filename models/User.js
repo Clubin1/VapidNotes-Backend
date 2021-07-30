@@ -72,6 +72,10 @@ const UserSchema = new Schema({
     levelExp: {
         type: Number,
         default: 1
+    },
+    imageURL: {
+        type: String,
+        default: ""
     }
 })
 

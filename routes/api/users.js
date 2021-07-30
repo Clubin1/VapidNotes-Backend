@@ -100,6 +100,24 @@ router.post("/tasks/:id", (req,res) => {
     });
 })
 
+
+router.post("/image/:id", (req,res) => {
+    const id = req.params.id;
+    User.findById(id, (err, user) => {
+      if (!user) {
+        res.status(404).send("user not found");
+      } else {
+        user.imageURL = req.body.imageURL
+        user
+          .save()
+          .then((user) => {
+            res.json(user);
+          })
+          .catch((err) => res.status(500).send(err.message));
+      }
+    });
+})
+
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public

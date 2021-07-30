@@ -40,10 +40,11 @@ app.post("/settings/upload/image", async (req,res) => {
             upload_preset: 'dev_setups'
         })
         console.log(uploadedResponse)
-        res.json({msg: "yayayay"})
+        let url = uploadedResponse.secure_url
+        res.json({data: url})
     } catch (error) {
         console.error('asdfasdf')
-        res.status(500).json({err: 'error'})
+        res.status(500).json({err: error})
     }
 })
 // Port
