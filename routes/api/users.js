@@ -75,6 +75,29 @@ router.post("/settings/:id", (req,res) => {
     });
 })
 
+router.get("/tasks/:id", (req, res) => {
+    const id = req.params.id;
+    User.findById(id, (err, user) => {
+      res.json(user);
+    });
+});
+  
+router.post("/tasks/:id", (req,res) => {
+    const id = req.params.id;
+    User.findById(id, (err, user) => {
+      if (!user) {
+        res.status(404).send("user not found");
+      } else {
+        user.levelExp = req.body.levelExp
+        user
+          .save()
+          .then((user) => {
+            res.json(user);
+          })
+          .catch((err) => res.status(500).send(err.message));
+      }
+    });
+})
 
 // @route POST api/users/login
 // @desc Login user and return JWT token

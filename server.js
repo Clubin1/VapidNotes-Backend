@@ -5,11 +5,16 @@ const cors = require('cors');
 const passport = require('passport')
 const fs = require('fs')
 const Loan = require('./models/Loan')
-
 const users = require('./routes/api/users')
 const app = express()
 let MongoClient = require('mongodb').MongoClient;
 
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({
+extended:true
+}));
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
