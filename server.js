@@ -31,7 +31,14 @@ require('./config/passport')(passport)
 
 // Routes
 app.use('/api/users', users)
-
+app.post("/settings/upload", (req,res) => {
+    try {
+        const fileStr = req.body.data
+        console.log(fileStr)
+    } catch (error) {
+        console.error('asdfasdf')
+    }
+})
 // Port
 const PORT = process.env.PORT || 5000;
 
